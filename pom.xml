@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.elasticsearch.plugin</groupId>
+        <artifactId>plugins</artifactId>
+        <version>2.3.2</version>
+    </parent>
+
+    <name>elasticsearch-castle-script</name>
+    <groupId>org.elasticsearch.plugin</groupId>
+    <artifactId>elasticsearch-castle-script</artifactId>
+    <version>2.3.2</version>
+    <description>ElasticSearch Plugin for Castle CMS</description>
+    <inceptionYear>2013</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <!-- ============================================================= -->
+    <!-- Most of the build and assembly logic is defined in the parent -->
+    <!-- pom. We just need to override a few settings here             -->
+    <!-- ============================================================= -->
+
+    <properties>
+        <!-- define class name for the descriptor file -->
+        <elasticsearch.plugin.classname>org.elasticsearch.castle.nativescript.plugin.NativeScriptPlugin</elasticsearch.plugin.classname>
+
+        <!-- we have custom licence header in this project -->
+        <elasticsearch.license.header>${project.basedir}/dev-tools/src/main/resources/license-check/native_script_example_license_header.txt</elasticsearch.license.header>
+        <elasticsearch.license.headerDefinition>${project.basedir}/dev-tools/src/main/resources/license-check/license_header_definition.xml</elasticsearch.license.headerDefinition>
+
+        <!-- define where to find integration rest tests -->
+        <tests.ifNoTests>warn</tests.ifNoTests>
+        <tests.rest.suite>nativescript</tests.rest.suite>
+        <tests.rest.load_packaged>false</tests.rest.load_packaged>
+    </properties>
+
+    <!-- needed for the snapshots of elasticsearch -->
+    <repositories>
+        <repository>
+            <id>oss-snapshots</id>
+            <name>Sonatype OSS Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                  <compilerArgument>-proc:none</compilerArgument>
+              </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
