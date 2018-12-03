@@ -7,13 +7,13 @@
     <parent>
         <groupId>org.elasticsearch.plugin</groupId>
         <artifactId>plugins</artifactId>
-        <version>2.3.2</version>
+        <version>2.3.5</version>
     </parent>
 
     <name>elasticsearch-castle-script</name>
     <groupId>org.elasticsearch.plugin</groupId>
     <artifactId>elasticsearch-castle-script</artifactId>
-    <version>2.3.2</version>
+    <version>2.3.5</version>
     <description>ElasticSearch Plugin for Castle CMS</description>
     <inceptionYear>2013</inceptionYear>
 
