@@ -5,11 +5,11 @@ MAINTAINER Wildcard Corp
 RUN apt-get update -y
 
 # Install Python Setuptools
-RUN apt-get install -y git-core maven
+RUN apt-get install -y git-core maven openjdk-7-jdk
 
 RUN cd /opt && git clone https://github.com/castlecms/elasticsearch-castle-scoring.git
 
-RUN export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 
 RUN cd /opt/elasticsearch-castle-scoring && mvn package
 
